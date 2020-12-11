@@ -59,6 +59,43 @@ extension SelectionViewController: UITableViewDelegate {
 
 // dismissはその画面を表示した親VCが行うべき、もしくはunwind segueを使う
 // 根拠 https://developer.apple.com/documentation/uikit/uiviewcontroller/1621505-dismiss
+// もしくは閉じるボタンの挙動をクロージャで注入する事もある
+// 画面遷移がModalからPushに変わっても、遷移先の画面のコードを一切変更しなくて済むのがメリット
+//class FirstViewController: UIViewController {
+//    @IBAction func didTap() {
+//        let secondVC = SecondViewController(
+//            closeButtonHandler: { [weak self] in
+//                self?.dismiss(animated: true, completion: nil)
+//            }
+//        )
+//        present(secondVC, animated: true, completion: nil)
+//    }
+//}
+//
+//class SecondViewController: UIViewController {
+//    private let closeButtonHandler: () -> Void
+//    init(closeButtonHandler: @escaping () -> Void) {
+//        self.closeButtonHandler = closeButtonHandler
+//        super.init(nibName: nil, bundle: nil)
+//    }
+//    required init?(coder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
+//    @IBAction func didTapCloseButton() {
+//        closeButtonHandler()
+//    }
+//}
+//
+//class FirstViewController: UIViewController {
+//    @IBAction func didTap() {
+//        let secondVC = SecondViewController(
+//            closeButtonHandler: { [weak self] in
+//                self?.navigationController?.popViewController(animated: true)
+//            }
+//        )
+//        navigationController?.pushViewController(secondVC, animated: true)
+//    }
+//}
 
 // 解答例
 
