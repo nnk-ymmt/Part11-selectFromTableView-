@@ -30,10 +30,6 @@ final class SelectionViewController: UIViewController {
         tableView.rowHeight = 50
         tableView.isHidden = false
     }
-
-    @IBAction private func cancel(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
-    }
 }
 
 extension SelectionViewController: UITableViewDataSource {

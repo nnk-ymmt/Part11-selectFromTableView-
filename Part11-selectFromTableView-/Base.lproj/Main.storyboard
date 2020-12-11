@@ -86,7 +86,7 @@
                     <navigationItem key="navigationItem" title="都道府県" id="btO-5c-tR7">
                         <barButtonItem key="rightBarButtonItem" title="キャンセル" id="7ev-t6-ejJ">
                             <connections>
-                                <action selector="cancel:" destination="vqL-Eo-Mkp" id="eBD-vX-zRX"/>
+                                <segue destination="bfA-VI-200" kind="unwind" unwindAction="exitByCancelWithSegue:" id="ARd-Qd-zfn"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
