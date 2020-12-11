@@ -15,7 +15,7 @@ final class ViewController: UIViewController {
         guard let selectionVC = segue.source as? SelectionViewController else { return }
         prefectureLabel.text = selectionVC.selectedPrefecture ?? "未選択"
     }
-    
+
     @IBAction private func exitByCancel(segue: UIStoryboardSegue) {
     }
 }

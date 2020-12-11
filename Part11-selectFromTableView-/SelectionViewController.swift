@@ -55,6 +55,11 @@ extension SelectionViewController: UITableViewDelegate {
 
 
 
+// 改善点
+
+// dismissはその画面を表示した親VCが行うべき、もしくはunwind segueを使う
+// 根拠 https://developer.apple.com/documentation/uikit/uiviewcontroller/1621505-dismiss
+
 // 解答例
 
 //struct Prefecture {
@@ -65,4 +70,33 @@ extension SelectionViewController: UITableViewDelegate {
 //    func getPrefectureName(indexPath: IndexPath) -> String {
 //        prefectureDatas[indexPath.row]
 //    }
+//}
+
+// TableViewCellで
+//static let reuseIdentifier = "TableViewCell"
+//static func loadNib() -> UINib {
+//    return UINib(nibName: reuseIdentifier, bundle: nil)
+//}
+
+// SelectionVCで
+//private let segueIdentifier = "exit"
+//
+//@IBOutlet weak var tableView: UITableView! {
+//    didSet {
+//        tableView.register(TableViewCell.loadNib(), forCellReuseIdentifier: TableViewCell.reuseIdentifier)
+//    }
+//}
+//
+//func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//    guard let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCell.reuseIdentifier, for: indexPath) as? TableViewCell else {
+//        return UITableViewCell()
+//    }
+//    cell.configure(name: prefectures[indexPath.row])
+//    return cell
+//}
+//
+//func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//    tableView.deselectRow(at: indexPath, animated: true) // 選択解除
+//    selectedPrefecture = prefectures[indexPath.row]
+//    performSegue(withIdentifier: segueIdentifier, sender: nil)
 //}
